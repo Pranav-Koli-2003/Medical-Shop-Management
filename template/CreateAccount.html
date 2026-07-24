@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/CreateAccount.css' %}">
+    <title> User Account</title>
+</head>
+<body>
+    
+
+
+<div class="accountFrom">
+    <div class="account">
+        <h2> <b> Create Account </b></h2>
+        <form method="POST" action="/Account">
+            {% csrf_token %}
+             <input class="input" type="text" placeholder="Create User Id" name="userId" required>
+             <input class="input" type="password" placeholder="Create Password" name="password" required>
+             <input class="input" type="text" placeholder="Enter Full Name" name="userName" required>
+             <input class="input" type="email" placeholder="Enter Email" name="email" required>
+             <input class="input" type="text" placeholder="Enter Mobile number" name="mobileNo" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+             <input class="input" type="text" placeholder="Enter Medical Shop Name" name="shopName" required>
+             <textarea class="input" id="area" placeholder="Enter Address" name="address" required></textarea>
+             <button type="submit" > <b> Submit </b></button>
+        </form>
+       
+    </div>
+
+    <script>  
+          function submit(){
+            alert("Account Created Successfully");
+          }
+    </script>
+
+    
+
+
+
+    <div class="imgdis">
+        <img src="{% static 'Images/Account_create_bc.jpg' %}" >
+        
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+{% load static %}
+    {% include 'Shop/Nbar.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'Css/Shop/Shop.css' %}">
+    <title>Home</title>
+</head>
+<style>
+    h4{
+        text-decoration: underline;
+    }
+</style>
+<body>
+    
+
+
+    <div class="displayData">
+         <div class="userdata">
+            {% for u in userData %}
+              <h3 >
+                   {{u.username}}
+              </h3>
+              <h5>
+                Subscription End Date : <samp id="enddate" style="color: red;">{{endusersub}}</samp>
+              </h5>
+            {% endfor %}
+         </div>
+         <div class="otherdata">
+              <div class="profitdata">
+                   <h4>
+                    {{display_month}}
+                   </h4>
+                   <h1  style="color: rgb(14, 219, 58);">
+                    ₹ {{total_profit}}
+                   </h1>
+              </div>
+              <div class="orderdata">
+                <h4 > Medicines Order  </h4>
+               <h1 style="color: red;"> {{order}}</h1>
+              </div>
+         </div>
+        </div>
+         <div class="expiredata">
+            <div class="expire">
+                <h4 >Expire Medicine</h4>
+                <h1 style="color: red;">
+                    {{expired_medicines}}
+                </h1>
+            </div>
+            <div class="expire">
+                <h4>Expire 3 Month</h4>
+                <h1 style="color: rgb(255, 102, 0);">
+                    {{month3_expired_medicines}}
+                </h1>
+            </div>
+            <div class="expire">
+                <h4>Expire 6 Month</h4>
+                <h1 style="color: rgb(95, 235, 2);;">
+                    {{month6_expired_medicines}}
+                </h1>
+            </div>
+            <div class="expire">
+                <h4>Expire 8 Month</h4>
+                <h1 style="color: rgb(0, 110, 255);">
+                    {{month8_expired_medicines}}
+                </h1>
+            </div>
+         </div>
+    
+
+</body>
+</html>

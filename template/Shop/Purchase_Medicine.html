@@ -1,0 +1,411 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Purchase_Medicine.css' %}">
+    <title>Purchase Medicine</title>
+</head>
+<body>
+    {% include 'Shop/Nbar.html' %}
+     
+                <form method="POST" action="Purchase_Medicine">
+                    {% csrf_token %}
+                    <div class="purchase">
+                         <div class="twopart">
+                            <div class="company">
+                                <table>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3">
+                                            <button type="button" id="outputcompany" onclick="AddCompanyData()"></button>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td> <label> Name:</label> </td>
+                                        <td colspan="3">
+                                            <input  class='RedBorder' id="inputSerach" type="text"  name="company" placeholder="Company Name" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td> <label> Address:</label> </td>
+                                        <td colspan="3" >
+                                            <textarea name="company_address" id="outputAddress" placeholder="Address" ></textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label> Phone:</label> </td>
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputPhone" type="text" name="phone" placeholder="1234567890" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                        </td>
+                                        <td>
+                                            <label >State Code:</label>
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputState" type="text" name="state_code" placeholder="State Code" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label >GSTIN:</label>
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputGSTIN" type="text" name="gstin" placeholder="GSTIN" >
+                                        </td>
+                                        <td>
+                                           <label> PAN No: </label>
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputPAN" type="text" name="pan" placeholder="PAN No" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            D.L.No:
+                                        </td>
+                                        <td colspan="3">
+                                            <input  class='RedBorder' id="outputDLN" type="text" name="DL_No" placeholder="D.L.No" >
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                            </div>
+                        
+                            <div class="gst">
+                                <h3>
+                                    GST TAX INVOICE CREDIT
+                                </h3>
+                                <table>
+                                    <tr>
+                                        <td>
+                                            Invoice No:
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputInvoice" type="text" name="invoice_no" placeholder="24125841" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
+ 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Date:
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder'  type="date"  required name="date" id="" >
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Due Bal:
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputDueBal" type="text"   name="Dul_bal" placeholder="50.50" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            P.O.No :
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputPON" type="text"  name="POno" placeholder="Saord67">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Salesman:
+                                        </td>
+                                        <td>
+                                            <input  class='RedBorder' id="outputSalesman" type="text"  name="salesman" placeholder="xyz">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                         </div>
+                            
+                           <div class="medicines">
+                                <table id="productTable">
+                                    <tr>
+                                        <th class="border" style="width:65px ;">HSN</th>
+                                        <th class="border" style="width:320px ;">Product Name</th>
+                                        <th class="border" style="width: 75px;">MFG</th>
+                                        <th class="border" style="width: 75px;">Unit</th>
+                                        <th class="border" style="width: 60px;">QTY</th>
+                                        <th class="border" style="width: 60px;">Sch</th>
+                                        <th class="border" style="width: 90px;">Batch</th>
+                                        <th class="border" style="width: 80px;">Expiry</th>
+                                        <th class="border" style="width: 65px;">M.R.P</th>
+                                        <th class="border" style="width: 65px;">Rate</th>
+                                        <th class="border" style="width: 55px;">Disc</th>
+                                        <th class="border" style="width: 55px;">Gst</th>
+                                        <th class="border" style="width: 80px;">Gst Amt</th>
+                                        <th class="border" style="width: 80px;">Amount</th>
+                                    </tr>
+                                    <tr> 
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_HSN" placeholder="2309">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Name" placeholder="xyzrequiredrequiredrequired">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_MFG" placeholder="DRO">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Unit" placeholder="80G">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_QTY" placeholder="5">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Sch" placeholder="5">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Batch" placeholder="vz00">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="date" format="yyyy-mm-dd" required style="width: 100%;" name="medicine_Expiry" placeholder="03022025">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_M_R_P" placeholder="40.00">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Rate" placeholder="27.00">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Disc" placeholder="2.0%">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Gst" placeholder="18%">
+                                        </td>
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Gst_amt" placeholder="24.30">
+                                        </td>
+
+                                        <td  class='border'>
+                                            <input type="text" required style="width: 100%;" name="medicine_Amount" placeholder="135.00">
+                                        </td>
+                                    </tr>
+
+
+                                    <script>
+                                        let rowCount = 1;
+                                        
+                                
+                                        function addRow() {
+                                            const table = document.getElementById("productTable").getElementsByTagName("tbody")[0];
+                                            const newRow = table.insertRow();
+                                            newRow.innerHTML = `
+                                                <td class='border'><input type="text" required  name="medicine_HSN"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Name"></td>
+                                                <td class='border'><input type="text" required  name="medicine_MFG"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Unit"></td>
+                                                <td class='border'><input type="text" required  name="medicine_QTY"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Sch"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Batch"></td>
+                                                <td class='border'><input type="date" required  name="medicine_Expiry"></td>
+                                                <td class='border'><input type="text" required  name="medicine_M_R_P"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Rate"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Disc"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Gst"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Gst_amt"></td>
+                                                <td class='border'><input type="text" required  name="medicine_Amount"></td>
+                                            `;
+                                        }
+                                
+                                        function submitForm() {
+                                            const table = document.getElementById("productTable").getElementsByTagName("tbody")[0];
+                                            const rows = table.getElementsByTagName("tr");
+                                            const data = [];
+                                
+                                            for (let i = 0; i < rows.length; i++) {
+                                                const cells = rows[i].getElementsByTagName("input");
+                                                const row = {};
+                                                for (let j = 0; j < cells.length; j++) {
+                                                    row[cells[j].name] = cells[j].value;
+                                                }
+                                                data.push(row);
+                                            }
+                                
+                                            fetch('/product-Purchase_Medicine_test', {
+                                                method: 'POST',
+                                                headers: {
+                                                    'Content-Type': 'application/json',
+                                                    'X-CSRFToken': getCookie('csrftoken')  // Use Django's CSRF token
+                                                },
+                                                body: JSON.stringify({ data })
+                                            })
+                                            .then(response => response.json())
+                                            .then(result => {
+                                                alert(result.status);
+                                            });
+                                        }
+                                
+                                        // CSRF token setup
+                                        function getCookie(name) {
+                                            let cookieValue = null;
+                                            if (document.cookie && document.cookie !== '') {
+                                                const cookies = document.cookie.split(';');
+                                                for (let i = 0; i < cookies.length; i++) {
+                                                    const cookie = cookies[i].trim();
+                                                    if (cookie.startsWith(name + '=')) {
+                                                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            return cookieValue;
+                                           }
+                                        </script>
+ <script>
+
+const companies = [];
+{% for c in company_info %}
+companies.push({
+    cname: "{{ c.purchase_compnay_name|escapejs }}",
+    caddress: "{{ c.purchase_compnay_address|escapejs }}",
+    cphone: "{{ c.purchase_compnay_phone|escapejs }}",
+    cstate: "{{ c.purchase_compnay_state_code|escapejs }}",
+    cgstin: "{{ c.purchase_compnay_gstin|escapejs }}",
+    cpan: "{{ c.purchase_compnay_pan|escapejs }}",
+    cdln: "{{ c.purchase_compnay_DL_no|escapejs }}",
+    cinvoice: "{{ c.purchase_invoice_no|escapejs }}",
+    cdulbal: "{{ c.purchase_Dul_bal|escapejs }}",
+    cpon: "{{ c.purchase_POno|escapejs }}",
+    csalesam: "{{ c.purchase_salesman|escapejs }}"
+});
+{% endfor %}
+
+console.log(companies);
+
+const outputCompany = document.getElementById('outputcompany');
+const inputSearch = document.getElementById('inputSerach');
+const outputAddress = document.getElementById('outputAddress');
+const outputPhone = document.getElementById('outputPhone');
+const outputState = document.getElementById('outputState');
+const outputGSTIN = document.getElementById('outputGSTIN');
+const outputPAN = document.getElementById('outputPAN');
+const outputDLN = document.getElementById('outputDLN');
+const outputInvoice = document.getElementById('outputInvoice');
+const outputDueBal = document.getElementById('outputDueBal');
+const outputPON = document.getElementById('outputPON');
+const outputSalesman = document.getElementById('outputSalesman');
+
+inputSearch.addEventListener('input', function () {
+    const search = inputSearch.value.toLowerCase().trim();
+
+    if (!search) {
+        outputCompany.innerHTML = "Type a company name...";
+        return;
+    }
+
+    const match = companies.find(com => com.cname.toLowerCase().includes(search));
+
+    if (match) {
+        outputCompany.innerHTML = match.cname;
+    } else {
+        outputCompany.innerHTML = "No match found."; // Display message for no match
+    }
+});
+
+
+function AddCompanyData(){
+    const addinfocom = outputCompany.innerHTML.trim().toLowerCase();
+
+    let found = false;
+    companies.forEach(add => {
+         console.log(add.cname.toLowerCase())
+         console.log(addinfocom)
+         id = add.cname.toLowerCase()
+         if(id == addinfocom){
+            inputSearch.value = add.cname;
+            outputAddress.value = add.caddress;
+            outputPhone.value = add.cphone;
+            outputState.value = add.cstate;
+            outputGSTIN.value = add.cgstin;
+            outputPAN.value = add.cpan;
+            outputDLN.value = add.cdln;
+            outputInvoice.value = add.cinvoice;
+            outputDueBal.value = add.cdulbal;
+            outputPON.value = add.cpon;
+            outputSalesman.value = add.csalesam;
+            found = true;
+         }
+         else{
+            console.log('not found');
+         }
+    });
+}
+
+
+
+ </script>
+                                        
+
+                                </table>
+
+                                <table id="TAXINFO">
+                                    <tr>
+                                        <th style="width: 150px;">CGST %</th>
+                                        <th style="width: 150px;">Taxable</th>
+                                        <th style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Tax Amount</th>
+                                        <th style="width: 150px;">SGST %</th>
+                                        <th style="width: 150px;">Taxable</th>
+                                        <th style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Tax Amount</th>
+                                        <th style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Total GST</th>
+                                        <th style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Item Disc</th>
+                                        <th style="width: 150px;">Gross :</th>
+                                        <td> <input type="text" name="Gross" placeholder="****" id="Gross"></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td> <input type="text"  placeholder="****" value="9" class="output" name="CGST" id="CGST"> </td>
+                                        <td> <input type="text"  placeholder="****"  class="output" name="CGST_Taxable" id="CGST_Taxable"> </td>
+                                        <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);"> <input type="text"  placeholder="****"  class="output" name="CGST_TaxAmt" id="CGST_TaxAmt"> </td>
+                                        <td> <input type="text"  placeholder="****" value="9"  class="output" name="SGST" id="SGST"> </td>
+                                        <td> <input type="text"  placeholder="****"  class="output" name="SGST_Taxable" id="SGST_Taxable"> </td>
+                                        <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);"> <input type="text"  placeholder="****"  class="output" name="SGST_TaxAmt" id="SGST_TaxAmt"> </td>
+                                        <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);"> <input type="text"  placeholder="****"  class="output" name="Total_GST" id="Total_GST"></td>
+                                        <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);"> <input type="text"  placeholder="****"  class="output" name="Total_Disc" id="Total_Disc"></td>
+                                        <th> Less :</th>
+                                        <td><input type="text"  placeholder="****"  class="output" name="Less" id="Less"></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <th>Add :</th>
+                                        <td><input type="text"  placeholder="****"  class="output" name="Add" id="Add"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                                        <th>NET :</th>
+                                        <td><input type="text"  placeholder="****"  class="output" name="NET" id="NET"></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="task">
+                                <button onclick="addRow()" class="taskbutton" id="btn1" style="background-color: rgb(0, 162, 255);" type="button">Add New Record</button>
+                               
+                                <button  onclick="submitForm()" class="taskbutton" style="background-color: rgb(6, 236, 56);" type="submit">Purchase Medicine</button>
+                            </div>
+                        
+                        </div>
+                    </form>
+
+
+                   
+
+    
+</body>
+
+</html>

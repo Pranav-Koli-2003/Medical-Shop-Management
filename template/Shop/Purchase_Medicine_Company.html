@@ -1,0 +1,105 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Purchase_Company.css' %}">
+    <title>Purxhase Company</title>
+</head>
+<body>
+    {% include 'Shop/Nbar.html' %}
+    <div class="AddCompanyInfo">
+        <h1>Company Information</h1>
+        <form method="POST" action="/Purchase_Medicine_Company">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td class="inputename">
+                         Company Name: 
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_name" placeholder="Sun Pharma.Inds" required>
+                    </td>
+                    <td class="inputename">
+                         Company Address: 
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_address" placeholder="Mumbai" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="inputename">
+                         Company Phone: 
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_phone" placeholder="1234567890" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+                    </td>
+                    <td class="inputename">
+                         Company PAN: 
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_pan_no" placeholder="sun7890" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="inputename">
+                         State Code:  
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_state_code" placeholder="01 Maharashtra" required>
+                    </td>
+                    <td class="inputename">
+                         D.L.No:  
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_D_L_no" placeholder="Mol-52-hdt-32" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="inputename">
+                         GSTIN: 
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_gstin" placeholder="17c73bcye23" required>
+                    </td>
+                    <td class="inputename">
+                         Company GST:  
+                    </td>
+                    <td class="inpute">
+                        <input type="text" name="company_gst_no" placeholder="xyz...." required>
+                    </td>
+                </tr>
+            </table>
+           
+          <button id="company_button" type="submit">
+                   Submit
+          </button>
+
+        </form>
+    </div>
+
+
+    <div class="display">
+        {% for c in compnaydata %}
+         <div class="multidisplay">
+            
+              <h4>Company Name : {{c.company_name}}</h4>
+              <h4>Address : {{c.company_address}}</h4>
+              <h4>Phone No : {{c.company_phone_no}} </h4>
+              <h4>PAN No : {{c.company_pan_no}}</h4>
+              <h4>State Code : {{c.company_state_code}}</h4>
+              <h4> D.L.No : {{c.company_D_L_no}} </h4>
+              <h4>GSTIN : {{c.company_gstin}}</h4>
+              <h4>Company GST : {{c.company_gst_no}}</h4>
+             
+              <button type="submit">
+                Delete
+              </button>          
+         </div>
+         {%endfor%}
+    </div>
+
+</body>
+</html>

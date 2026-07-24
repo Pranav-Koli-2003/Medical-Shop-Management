@@ -1,0 +1,89 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .Order{
+        width: 70%;
+        margin: 5% 15%;
+        padding: 25px;
+        background-color: white;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    #titleh2{
+        text-align: center;
+        margin: 15px 0px 30px 0px;
+        color: rgb(0, 189, 101);
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    table{
+        width: 100%;
+    }
+    .bordertd{
+        border-bottom: 2px solid orange;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        padding: 5px 15px;
+    }
+    #ordermbtn{
+        width: 90%;
+        margin: 0px 5%;
+        padding: 5px 10px;
+        font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
+        background-color: rgb(0, 189, 101);
+        color: white;
+    }
+    #ordermbtn:hover{
+        box-shadow: 1px 2px 3px 4px rgba(0, 189, 101, 0.555);
+    }
+    .borderth{
+        font-size: 18px;
+        padding: 5px 15px;
+        border: 2px solid black;
+    }
+</style>
+<body>
+    {% include 'Shop/Nbar.html' %}
+
+    <div class="Order ">
+        <h2 id="titleh2">Order Medicine</h2>
+        <table>
+            <tr>
+                <th class="borderth">
+                    Medicine Name
+                </th>
+                <th class="borderth">
+                    Medicine MFG
+                </th>
+                <th class="borderth">
+                    Medicine unit
+                </th>
+            </tr>
+            {% for o in order%}
+            <tr>
+                <td style="width: 360px;" class="bordertd">
+                     {{o.purchase_medicine_Name}}
+                </td>
+                <td style="width: 180px;" class="bordertd">
+                    {{o.purchase_medicine_MFG}}
+                </td>
+                <td style="width: 180px;" class="bordertd">
+                    {{o.purchase_medicine_Unit}}
+                </td>
+                <td  style="border-right: none;">
+                    <a href="/deletemedicine/{{o.id}}"><button id="ordermbtn" type="submit">Order</button></a>
+                </td>
+            </tr>
+            {% endfor%}
+        </table>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #d9e7ff, #eef1ff);
+            font-family: "Poppins", sans-serif;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 100px auto;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .filter-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-box a {
+            padding: 12px 24px;
+            margin: 0 8px;
+            background: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #444;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .filter-box a:hover {
+            background: #5e8bff;
+            color: white;
+        }
+
+        .active {
+            background: #5e8bff !important;
+            color: white !important;
+        }
+
+        /* Glass card */
+        .glass-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.55);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .profit-amount {
+            font-size: 50px;
+            font-weight: 700;
+            color: #222;
+            margin-top: 5px;
+        }
+
+        .chart-card {
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .chart-title {
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% include 'Shop/Nbar.html' %}
+    <div class="nbody">
+
+    <div class="container">
+
+        <div class="title">📊 Profit Analytics</div>
+
+        <div class="filter-box">
+            <a href="?period=1m" class="{% if period == '1m' %}active{% endif %}">1 Month</a>
+            <a href="?period=3m" class="{% if period == '3m' %}active{% endif %}">3 Months</a>
+            <a href="?period=6m" class="{% if period == '6m' %}active{% endif %}">6 Months</a>
+        </div>
+
+        <div class="glass-card">
+            <h2>Total Profit</h2>
+            <div class="profit-amount">₹ {{ profit }}</div>
+        </div>
+
+        <div class="chart-card">
+            <div class="chart-title">Income vs Expense</div>
+            <canvas id="profitChart"></canvas>
+        </div>
+
+    </div>
+
+    <script>
+        const ctx = document.getElementById("profitChart");
+
+        new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: ["Purchase", "Sell", "Profit"],
+                datasets: [{
+                    label: "Amount (₹)",
+                    data: [
+                        {{ purchase_total }},
+                        {{ sell_total }},
+                        {{ profit }}
+                    ],
+                    tension: 0.5,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 1500,
+                    easing: "easeOutBounce"
+                }
+            }
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Sell_medicine.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'Shop/Nbar.html' %}
+
+    <div class="sellmedicine">
+        <form>
+            <div class="patient">
+                <table>
+                    <tr>
+                        <td>Patient Name</td>
+                        <td><input type="text" name="patient_name" placeholder="Enter Patient Name"></td>
+                        <td>
+                            Patient phone No.
+                        </td>
+                        <td><input type="text" name="patient_phone" placeholder="Enter Patient Mobile"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="medicine">
+                <div class="sell">
+                    <table id="MedicineTable">
+                        <tbody>
+                            <tr>
+                                <th style="width: 380px;">
+                                    <label for="medicine">Medicine Name</label>
+                                </th>
+                                <th style="width: 140px;">
+                                    <label for="quantity"> Total Quantity</label>
+                                </th>
+                                <th style="width: 140px;">
+                                    <label for="MFG">Medicine MFG</label>
+                                </th>
+                                <th style="width: 140px;">
+                                    <label for="expiry">Medicine Expiry</label>
+                                </th>
+                                <th style="width: 140px;">
+                                    <label for="Sell quantity"> Sell quantity</label>
+                                </th>
+                                <th style="width: 100px;"></th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="inputdata" id="medicine" name="medicine"></td>
+                                <td><input type="text" class="inputdata" id="quantity" name="quantity"></td>
+                                <td><input type="text" class="inputdata" id="MFG" name="MFG"></td>
+                                <td><input type="text" class="inputdata" id="expiry" name="expiry"></td>
+                                <td><input type="text" class="inputdata" id="Sell_quantity" name="Sell_quantity"></td>
+                                <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="width: 380px;" id="output"></div>
+                    <button type="button" onclick="addRow()">Add Medicine</button>
+                    <button type="button">Sell Medicine</button>
+                </div>
+            </div>
+            
+            <script>
+                // JavaScript Array to store medicine details
+                const medicines = [];
+            
+                // Populate the array from Django data
+                {% for medicine in sell %}
+                medicines.push({
+                    id: "{{ medicine.id|escapejs }}",
+                    name: "{{ medicine.purchase_medicine_Name|escapejs }}",
+                    quantity: "{{ medicine.purchase_medicine_QTY|escapejs }}",
+                    rate: "{{ medicine.purchase_medicine_Rate|escapejs }}",
+                    MFG: "{{ medicine.purchase_medicine_MFG|escapejs }}",
+                    expiry: "{{ medicine.purchase_medicine_Expiry|escapejs }}"
+                });
+                {% endfor %}
+            
+                console.log(medicines);
+            
+                // Input field event listener
+                const nameInput = document.getElementById('medicine');
+                const output = document.getElementById('output');
+            
+                nameInput.addEventListener('input', function () {
+                    const search = nameInput.value.toLowerCase();
+                    let found = false;
+            
+                    medicines.forEach(med => {
+                        if (med.name.toLowerCase().includes(search)) {
+                            console.log(`Search Match: ${med.name}`);
+                            console.log(`Medicine ID: ${med.id}`);
+                            output.innerHTML = `Name: ${med.name}, MFG: ${med.MFG}, Expiry: ${med.expiry}`;
+                            found = true;
+                        }
+                    });
+            
+                    if (!found) {
+                        output.innerHTML = "No match found.";
+                    }
+                });
+            
+                // Add row function
+                function addRow() {
+                    const table = document.getElementById("MedicineTable").getElementsByTagName("tbody")[0];
+                    const newRow = table.insertRow();
+            
+                    newRow.innerHTML = `
+                        <td><input type="text" class="inputdata" name="medicine"></td>
+                        <td><input type="text" class="inputdata" name="quantity"></td>
+                        <td><input type="text" class="inputdata" name="MFG"></td>
+                        <td><input type="text" class="inputdata" name="expiry"></td>
+                        <td><input type="text" class="inputdata" name="Sell_quantity"></td>
+                        <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+                    `;
+                }
+            
+                // Delete row function
+                function deleteRow(button) {
+                    const row = button.parentElement.parentElement;
+                    row.remove();
+                }
+            </script>
+            
+
+
+ 
+    
+    
+    
+</body>
+</html>

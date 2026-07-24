@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Sell_medicine_History.css' %}">
+    <title>Sell Medicine History</title>
+</head>
+<style>
+
+</style>
+<body>
+    
+    {% include 'Shop/Nbar.html' %}
+
+    <div class="display">
+        {% for item in sell_bill_map %}
+        <div class="multilebill">
+        <div class=" displayprint" id="{{item.bill.id}}">
+            <div class="shop">
+              <div class="shopinfo">
+                   {% for u in userData %}
+
+                   <h3>
+                    {{u.shopName}}
+                   </h3>
+
+                   {% endfor %}
+              </div>
+              <div class="datesell">
+
+                  <h3>
+                    {{item.bill.sell_medicine_bill_day}}
+                  </h3>
+              </div>
+            </div>
+              <table id="drpdata">
+                <tr>
+                    <th  style="width: 80px;" id="drp">
+                        DR Name :
+                    </th>
+                    <th style="width: 200px;" id="drp">
+                        {{item.bill.sell_medicine_bill_Dr}}
+                    </th>
+                    <th  style="width: 100px;" id="drp">
+                        Patient Name :
+                    </th>
+                    <th  style="width: 200px;" id="drp">
+                        {{item.bill.sell_medicine_bill_patient}}
+                    </th>
+                </tr>
+            </table>
+              <table>
+                <tr>
+                    <th class="borderth">
+                        Medicine Name
+                    </th>
+                    <th class="borderth">
+                        Sell quantity
+                    </th>
+                    <th class="borderth">
+                        Sell Amount
+                    </th>
+                </tr>
+                {% for s in item.sell_medicine %}
+                <tr>
+                    <td class="bordertd">
+                        {{s.sell_medicine_name}}
+                    </td>
+                    <td class="bordertd">
+                        {{s.sell_medicine_quantity}}
+                    </td>
+                    <td class="bordertd">
+                        {{s.sell_medicine_amount}}
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="2" class="bordertd" style="text-align: right;">
+                        Total Amount :-
+                    </td>
+                    <td class="bordertd" style="color: rgb(18, 212, 0);font-size: 20px;">
+                        {{item.bill.sell_medicine_bill_amount}}
+                    </td>
+                </tr>
+              </table>
+            </div>
+            <button type="button" id="printbtn" onclick="printData('{{item.bill.id}}')">Print</button>
+        </div>
+
+        {% endfor %}
+    </div>
+
+<script>
+
+function printData(divID) {
+    // Select the specific div by its ID
+    var divToPrint = document.getElementById(divID);
+
+    if (!divToPrint) {
+        alert("Could not find the specified section to print.");
+        return;
+    }
+
+    // Create a new window for the printing process
+    var newWin = window.open("", "_blank");
+
+    // Write the selected div's content to the new window
+    newWin.document.write(`
+        <html>
+            <head>
+                <title>Print Preview</title>
+                <style>
+                    /* Include your custom styles here */
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    table { border-collapse: collapse; width: 100%; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background-color: #f2f2f2; }
+                </style>
+            </head>
+            <body>
+                ${divToPrint.outerHTML}
+            </body>
+        </html>
+    `);
+
+    // Trigger the print dialog
+    newWin.document.close();
+    newWin.focus();
+    newWin.print();
+
+    // Close the print window after the printing is done
+    newWin.close();
+}
+
+
+</script>
+
+</body>
+</html>

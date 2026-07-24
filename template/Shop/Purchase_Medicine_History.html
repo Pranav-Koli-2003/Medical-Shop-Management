@@ -1,0 +1,320 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Purchase_Medicine_History.css' %}">
+    <title>Purchase Medicine History</title>
+</head>
+
+<body>
+    
+    {% include 'Shop/Nbar.html' %}
+    
+    <div class="display">
+        {% for item in company_medicine_map %}
+          <div class="purchase">
+            <div class="printdata" id="{{item.company.id}}">
+              <div class="twopart">
+                 <div class="company">
+                  <h3>
+                      Company
+                  </h3>
+                     <table>
+                         <tr>
+                             <td> <label> Name:</label> </td>
+                             <td colspan="3">
+                                 {{item.company.purchase_compnay_name}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td> <label> Address:</label> </td>
+                             <td colspan="3" >
+                              {{item.company.purchase_compnay_address}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <label> Phone:</label> </td>
+                             </td>
+                             <td>
+                                 {{item.company.purchase_compnay_phone}}
+                             </td>
+                             <td>
+                                 <label >State Code:</label>
+                             </td>
+                             <td>
+                                {{item.company.purchase_compnay_state_code}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 <label >GSTIN:</label>
+                             </td>
+                             <td>
+                                {{item.company.purchase_compnay_gstin}}
+                             </td>
+                             <td>
+                                <label> PAN No: </label>
+                             </td>
+                             <td>
+                                 {{item.company.purchase_compnay_pan}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 D.L.No:
+                             </td>
+                             <td >
+                                 {{item.company.purchase_compnay_DL_no}}
+                             </td>
+                         </tr>
+                     </table>
+                     
+                 </div>
+             
+                 <div class="gst">
+                     <h3>
+                         GST TAX INVOICE CREDIT
+                     </h3>
+                     <table>
+                         <tr>
+                             <td>
+                                 Invoice No:
+                             </td>
+                             <td>
+                             {{item.company.purchase_invoice_no}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 Date:
+                             </td>
+                             <td>
+                                 {{item.company.purchase_date}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 Due Bal:
+                             </td>
+                             <td>
+                                 {{item.company.purchase_Dul_bal}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 P.O.No :
+                             </td>
+                             <td>
+                                 {{item.company.purchase_POno}}
+                             </td>
+                         </tr>
+                         <tr>
+                             <td>
+                                 Salesman:
+                             </td>
+                             <td>
+                                 {{item.company.purchase_salesman}}
+                             </td>
+                         </tr>
+                     </table>
+                 </div>
+                 <div class="shop">
+                  <h3> Shop</h3>
+                  {% for s in userData %}
+                  <table>
+                      <tr>
+                          <td>
+                              {{s.username}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              {{s.address}}
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              {{s.startDate}}
+                          </td>
+                      </tr>
+                  </table>
+                  {% endfor %}
+                 </div>
+              </div>
+                 
+                <div class="medicines">
+                  
+                     <table id="productTable">
+                         <tr>
+                             <th class="border" style="width:65px ;">HSN</th>
+                             <th class="border" style="width:320px ;">Product Name</th>
+                             <th class="border" style="width: 70px;">MFG</th>
+                             <th class="border" style="width: 70px;">Unit</th>
+                             <th class="border" style="width: 60px;">QTY</th>
+                             <th class="border" style="width: 60px;">Sch</th>
+                             <th class="border" style="width: 90px;">Batch</th>
+                             <th class="border" style="width: 90px;">Expiry</th>
+                             <th class="border" style="width: 65px;">M.R.P</th>
+                             <th class="border" style="width: 65px;">Rate</th>
+                             <th class="border" style="width: 55px;">Disc</th>
+                             <th class="border" style="width: 55px;">Gst</th>
+                             <th class="border" style="width: 80px;">Gst Amt</th>
+                             <th class="border" style="width: 80px;">Amount</th>
+                         </tr>
+                         {% for m in item.medicines %}
+                         <tr> 
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_HSN}}
+                             </td>
+                             <td  class='border'>
+                                {{m.purchase_medicine_bill_Name}}
+                             </td>
+                             <td  class='border'>
+                                {{m.purchase_medicine_bill_MFG}}
+                             </td>
+                             <td  class='border'>
+                                {{m.purchase_medicine_bill_Unit}}
+                             </td>
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_QTY}}
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_Sch}}
+                             </td>
+                             <td  class='border'>
+                                {{m.purchase_medicine_bill_Batch}}
+                             </td>
+                             <td  class='border' style="color: red; padding: 0px 5px;">
+                                 {{m.purchase_medicine_bill_Expiry}}
+                             </td>
+                             <td  class='border'>
+                                {{m.purchase_medicine_bill_M_R_P}}
+                             </td>
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_Rate}}
+                             </td>
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_Disc}}
+                             </td>
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_Gst}}
+                             </td>
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_Gst_amt}}
+                             </td>
+    
+                             <td  class='border'>
+                                 {{m.purchase_medicine_bill_Amount}}
+                             </td>
+                         </tr>
+                         {% endfor %}
+    
+    
+                     </table>
+    
+                     <table id="TAXINFO">
+                         <tr>
+                             <th class="thborder" style="width: 150px;">CGST %</th>
+                             <th class="thborder" style="width: 150px;">Taxable</th>
+                             <th class="thborder" style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Tax Amount</th>
+                             <th class="thborder" style="width: 150px;">SGST %</th>
+                             <th class="thborder" style="width: 150px;">Taxable</th>
+                             <th class="thborder" style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Tax Amount</th>
+                             <th class="thborder" style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Total GST</th>
+                             <th class="thborder" style="width: 150px; border-right: 2px solid rgba(0, 0, 0, 0.801);">Item Disc</th>
+                             <th style="width: 150px;">Gross :</th>
+                             <td style="width: 150px;">{{item.company.purchase_CGST}} </td>
+                             
+                         </tr>
+                         <tr>
+                             <td>{{item.company.purchase_CGST}} </td>
+                             <td> {{item.company.purchase_CGST_Taxable}} </td>
+                             <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);"> {{item.company.purchase_CGST_TaxAmt}} </td>
+                             <td> {{item.company.purchase_SGST}} </td>
+                             <td> {{item.company.purchase_SGST_Taxable}} </td>
+                             <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);"> {{item.company.purchase_SGST_TaxAmt}} </td>
+                             <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);">{{item.company.purchase_Total_GST}} </td>
+                             <td style="border-right: 2px solid rgba(0, 0, 0, 0.801);">{{item.company.purchase_Total_Disc}} </td>
+                             <th> Less :</th>
+                             <td>{{item.company.purchase_Less}} </td>
+                             
+                         </tr>
+                         <tr>
+                             <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <th>Add :</th>
+                             <td>{{item.company.purchase_Add}} </td>
+                         </tr>
+                         <tr>
+                             <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <td colspan="3" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <td colspan="1" style="border-right: 2px solid rgba(0, 0, 0, 0.801);"></td>
+                             <th>NET :</th>
+                             <td>{{item.company.purchase_NET}} </td>
+                         </tr>
+                     </table>
+                 </div>
+    
+                </div>
+                 <button type="button" id="printbtn" onclick="printData('{{item.company.id}}')">Print</button>
+             </div>
+       {% endfor %}
+      </div>
+
+      
+<script>
+
+    function printData(divID) {
+        // Select the specific div by its ID
+        var divToPrint = document.getElementById(divID);
+    
+        if (!divToPrint) {
+            alert("Could not find the specified section to print.");
+            return;
+        }
+    
+        // Create a new window for the printing process
+        var newWin = window.open("", "_blank");
+    
+        // Write the selected div's content to the new window
+        newWin.document.write(`
+            <html>
+                <head>
+                    <title>Print Preview</title>
+                    <style>
+                        /* Include your custom styles here */
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        table { border-collapse: collapse; width: 100%; }
+                        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                        th { background-color: #f2f2f2; }
+                    </style>
+                </head>
+                <body>
+                    ${divToPrint.outerHTML}
+                </body>
+            </html>
+        `);
+    
+        // Trigger the print dialog
+        newWin.document.close();
+        newWin.focus();
+        newWin.print();
+    
+        // Close the print window after the printing is done
+        newWin.close();
+    }
+    
+    
+    </script>
+    
+
+
+   
+</body>
+</html>

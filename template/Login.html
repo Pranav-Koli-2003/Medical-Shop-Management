@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/login.css' %}">
+    <title>Welcome To Shop</title>
+    
+</head>
+<style>
+    body {
+        background-image: url("{% static 'Images/Login_bc.jpg' %}");
+        background-size: cover;
+        }
+</style>
+<body>
+      <div class="login_frem">
+        <div class="login">
+            <form method="POST" action="/Login">
+                {% csrf_token %}
+                <h2>
+                  <i>welcome To  </i> 
+                </h2>
+                <h2 id="login_title"> <b> Medical Shop </b></h2>
+                
+                <input class="input" type="text" name="userId" placeholder="Enter Your Id" required>
+                <input class="input" type="password" name="password" placeholder="Enter Your Password" required>
+                <h3>
+                    {{error}}
+                </h3>
+                <p>
+                    Don't have an account? <a href="Account">sign up</a>
+                </p>
+                <button type="submit"> <b>Login </b> </button>
+                    
+            </form>
+        </div>
+      </div>
+</body>
+</html>

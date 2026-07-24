@@ -1,0 +1,282 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Medicine.css' %}">
+    <title>Expiry</title>
+</head>
+<style>
+    .display{
+        width: 86%;
+        margin: 5% 7%;
+    }
+    
+    #expirytd{
+        color: red;
+        font-weight: bold;
+    }
+    #expiry3td{
+        color: rgb(255, 102, 0);
+        font-weight: bold;
+    }
+    #expiry6td{
+        color: rgb(95, 235, 2);
+        font-weight: bold;
+    }
+    #expiry8td{
+        color: rgb(0, 110, 255);
+        font-weight: bold;
+    }
+    h3{
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        padding: 5px 0px 25px 0px;
+        text-decoration: underline;
+        
+    }
+</style>
+<body>
+    {% include 'Shop/Nbar.html' %}
+
+    <div class="Expiry8">
+        <div class="display">
+            <div class="medicine">
+                <h3 style="color: red;"> 
+                    Medicine Expired
+                </h3>
+                <table id="productTable">
+                    <tr>
+                        <th class="thborder" style="width:100px ;">HSN</th>
+                        <th class="thborder" style="width:420px ;">Product Name</th>
+                        <th class="thborder" style="width: 95px;">MFG</th>
+                        <th class="thborder" style="width: 95px;">Unit</th>
+                        <th class="thborder" style="width: 95px;">QTY</th>
+                        <th class="thborder" style="width: 95px;">Sch</th>
+                        <th class="thborder" style="width: 100px;">Batch</th>
+                        <th class="thborder" style="width: 125px;">Expired Date</th>
+                        
+                    </tr>
+                    {% for m in expired_medicines %}
+                    
+                    <tr> 
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_HSN}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Name}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_MFG}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Unit}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_QTY}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_Sch}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Batch}}
+                        </td>
+                        
+                        <td  class='tdborder'  id="expirytd">
+                           {{m.purchase_medicine_Expiry}}
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+    
+    
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+    <div class="Expiry8">
+        <div class="display">
+            <div class="medicine">
+                <h3 style="color: rgb(255, 102, 0);">
+                    After 3 month Expired Medicine
+                </h3>
+                <table id="productTable">
+                    <tr>
+                        <th class="thborder" style="width:100px ;">HSN</th>
+                        <th class="thborder" style="width:420px ;">Product Name</th>
+                        <th class="thborder" style="width: 95px;">MFG</th>
+                        <th class="thborder" style="width: 95px;">Unit</th>
+                        <th class="thborder" style="width: 95px;">QTY</th>
+                        <th class="thborder" style="width: 95px;">Sch</th>
+                        <th class="thborder" style="width: 100px;">Batch</th>
+                        <th class="thborder" style="width: 125px;">Expired Date</th>
+                    </tr>
+                    {% for m in month3_expired_medicines%}
+                    
+                    <tr> 
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_HSN}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Name}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_MFG}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Unit}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_QTY}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_Sch}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Batch}}
+                        </td>
+                        
+                        <td  class='tdborder' id="expiry3td">
+                            {{m.purchase_medicine_Expiry}}
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+    
+    
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+    <div class="Expiry8">
+        <div class="display">
+            <div class="medicine">
+                <h3 style="color:  rgb(95, 235, 2);">
+                    After 6 month Expired Medicine
+                </h3>
+                <table id="productTable">
+                    <tr>
+                        <th class="thborder" style="width:100px ;">HSN</th>
+                        <th class="thborder" style="width:420px ;">Product Name</th>
+                        <th class="thborder" style="width: 95px;">MFG</th>
+                        <th class="thborder" style="width: 95px;">Unit</th>
+                        <th class="thborder" style="width: 95px;">QTY</th>
+                        <th class="thborder" style="width: 95px;">Sch</th>
+                        <th class="thborder" style="width: 100px;">Batch</th>
+                        <th class="thborder" style="width: 125px;">Expired Date</th>
+                    </tr>
+                    {% for m in month6_expired_medicines%}
+                    
+                    <tr> 
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_HSN}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Name}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_MFG}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Unit}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_QTY}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_Sch}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Batch}}
+                        </td>
+                        
+                        <td  class='tdborder' id="expiry6td">
+                            {{m.purchase_medicine_Expiry}}
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+    
+    
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+
+    <div class="Expiry8">
+        <div class="display">
+            <div class="medicine">
+                <h3 style="color:  rgb(0, 110, 255);">
+                    After 8 month Expired Medicine
+                </h3>
+                <table id="productTable">
+                    <tr>
+                        <th class="thborder" style="width:100px ;">HSN</th>
+                        <th class="thborder" style="width:420px ;">Product Name</th>
+                        <th class="thborder" style="width: 95px;">MFG</th>
+                        <th class="thborder" style="width: 95px;">Unit</th>
+                        <th class="thborder" style="width: 95px;">QTY</th>
+                        <th class="thborder" style="width: 95px;">Sch</th>
+                        <th class="thborder" style="width: 100px;">Batch</th>
+                        <th class="thborder" style="width: 125px;">Expired Date</th>
+                    </tr>
+                    {% for m in month8_expired_medicines%}
+                    
+                    <tr> 
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_HSN}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Name}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_MFG}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Unit}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_QTY}}
+                        </td>
+                        <td  class='tdborder'>
+                            {{m.purchase_medicine_Sch}}
+                        </td>
+                        <td  class='tdborder'>
+                           {{m.purchase_medicine_Batch}}
+                        </td>
+                        
+                        <td  class='tdborder' id="expiry8td"> 
+                            {{m.purchase_medicine_Expiry}}
+                        </td>
+                        
+                    </tr>
+                    {% endfor %}
+    
+    
+                </table>
+            </div>
+        </div>
+    
+    </div>
+
+
+
+    
+    
+
+</body>
+</html>

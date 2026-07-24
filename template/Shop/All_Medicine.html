@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'Css/Shop/Medicine.css' %}">
+    <title>All Medicine</title>
+</head>
+<style>
+ 
+    
+</style>
+<body>
+    
+    {% include 'Shop/Nbar.html' %}
+
+    <div class="display">
+        <div class="medicine">
+            <table id="productTable">
+                <tr>
+                    <th class="thborder" style="width:100px ;">HSN</th>
+                    <th class="thborder" style="width:420px ;">Product Name</th>
+                    <th class="thborder" style="width: 85px;">MFG</th>
+                    <th class="thborder" style="width: 85px;">Unit</th>
+                    <th class="thborder" style="width: 85px;">QTY</th>
+                    <th class="thborder" style="width: 85px;">Sch</th>
+                    <th class="thborder" style="width: 90px;">Batch</th>
+                    <th class="thborder" style="width: 85px;">M.R.P</th>
+                    <th class="thborder" style="width: 95px;">Rate</th>
+                    <th class="thborder" style="width: 100px;">Amount</th>
+                </tr>
+                {% for m in medicine_all%}
+                
+                <tr> 
+                    <td  class='tdborder'>
+                        {{m.purchase_medicine_HSN}}
+                    </td>
+                    <td  class='tdborder'>
+                       {{m.purchase_medicine_Name}}
+                    </td>
+                    <td  class='tdborder'>
+                       {{m.purchase_medicine_MFG}}
+                    </td>
+                    <td  class='tdborder'>
+                       {{m.purchase_medicine_Unit}}
+                    </td>
+                    <td  class='tdborder'>
+                        {{m.purchase_medicine_QTY}}
+                    </td>
+                    <td  class='tdborder'>
+                        {{m.purchase_medicine_Sch}}
+                    </td>
+                    <td  class='tdborder'>
+                       {{m.purchase_medicine_Batch}}
+                    </td>
+                    
+                    <td  class='tdborder'>
+                       {{m.purchase_medicine_M_R_P}}
+                    </td>
+                    <td  class='tdborder'>
+                        {{m.purchase_medicine_Rate}}
+                    </td>
+                    
+
+                    <td  class='tdborder'>
+                        {{m.purchase_medicine_Amount}}
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
