@@ -1,0 +1,116 @@
+/* Main container */
+.displayData {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* User info card */
+.userdata {
+    width: 48%;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.userdata:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+
+/* Right side data box */
+.otherdata {
+    width: 48%;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Each profit/order card */
+.profitdata, .orderdata {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.profitdata:hover, .orderdata:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* Expire section */
+.expiredata {
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.expire {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(12px);
+    padding: 25px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: 0.3s ease;
+}
+
+.expire:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+
+/* Text styling */
+h3, h4, h5, h1 {
+    margin: 0;
+    padding: 3px;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+/* Smooth fade animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .userdata, .otherdata {
+        width: 100%;
+    }
+
+    .expiredata {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .expiredata {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,123 @@
+
+
+.AddMedicine{
+    width: 86%;
+    margin:  5% 7%;
+    background-color: white;
+    padding: 30px 25px;
+    box-shadow: 1px 2px 2px 3px rgba(65, 1, 1, 0.514);
+
+}
+
+.thedit{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border: 2px solid black;
+}
+
+.inputdata{
+    width: 100%;
+    padding: 3px 4px 3px 5px;
+    border: none;
+    border-bottom: 2px solid orange;
+    
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    border: 2px solid black;
+}
+
+#submitdata{
+    width: 25%;
+    margin: 45px 0% 25px 75%;
+    padding: 5px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(98, 0, 255);
+    border-radius: 25px;
+    box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.61);
+}
+
+#submitdata:hover{
+    text-decoration: underline;
+    box-shadow: 1.5px 2.5px 2.5px 3.5px rgba(0, 0, 0, 0.61);
+}
+
+#addmdata{
+    width: 80%;
+    margin-left: 20%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    padding: 3px 0px;
+    background-color: rgb(132, 0, 255);
+    color: white;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.514);
+}
+#outputep{
+    background-color: white;
+    text-align: left;
+    border: none;
+    padding: 5px 2px;
+    color: red;
+    cursor: none;
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.459);
+}
+#getSell_quantity{
+    font-weight: bold;
+}
+#output{
+    background-color: white;
+    text-align: left;
+    border: none;
+    padding: 5px 2px;
+    color: rgb(79, 7, 247);
+    font-weight: bold;
+    text-decoration: underline;
+    box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.459);
+}
+
+.DisplayMedicine{
+    width: 64%;
+    margin: 5% 18%;
+    background-color: white;
+    padding: 24px;
+}
+
+.theditno{
+    border: none;
+}
+
+.inputdatatd{
+    color: white;
+    width: 100%;
+    border: none;
+}
+
+.DisplayMedicine{
+    box-shadow: 2px 2px 3px 3px rgba(0, 0, 0, 0.466);
+}
+
+#drpdata{
+    width: 100%;
+    margin: 2% 0%;
+    font-family: 'Times New Roman', Times, serif;
+   
+}
+
+#drp{
+
+    padding: 2px 5px;
+    text-align: right;
+
+}
+
+.newdata{
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid orange;
+}

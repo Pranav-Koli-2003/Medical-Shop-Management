@@ -1,0 +1,91 @@
+
+.AddCompanyInfo{
+    width: 70%;
+    margin: 5% 15%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.658);
+}
+
+.AddCompanyInfo > h1{
+    font-size: 30px;
+    text-align: center;
+    margin: 20px 0px 40px 0px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+table{
+    width: 100%;
+}
+
+.inputename{
+width: 10%;
+font-family: 'Times New Roman', Times, serif;
+font-size: 16px;
+
+padding: 10px 0px 10px 10px;
+
+}
+
+.inpute{
+    width: 25%;
+    padding: 10px 0px;
+    
+}
+
+input[type='text']{
+    width:90%;
+    margin: 0px 7% 0px 3%;
+    border: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border-bottom: 2px solid orange;
+    padding: 5px 5px 5px 15px;
+
+}
+
+#company_button{
+    width: 25%;
+    margin: 50px 5% 30px 70%;
+    padding: 7px 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(71, 8, 216);
+    border-radius: 25px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.display{
+    width: 98%;
+    margin: 4% 2% 4% 2%;
+    padding: 15px;
+    display: inline-flex;
+}
+
+.multidisplay{
+  width: 35%;
+  padding: 10px 15px;
+  margin: 10px 15px;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.644);
+}
+
+.multidisplay > h4{
+    margin: 10px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+}
+
+.multidisplay > button{
+    width: 108%;
+    padding: 6px 0px;
+    margin: 0px -15px -15px -15px;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+    background-color: red;
+}

@@ -1,0 +1,94 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    background-color: rgba(225, 236, 245, 0.884);
+}
+
+.UserInfoData{
+    width: 100%;
+    background-image: linear-gradient(to bottom right, rgb(1, 139, 112), rgb(126, 219, 201));
+    box-shadow: 1px 1.5px 1.5px 2px rgba(0, 0, 0, 0.479);
+}
+
+.ShopInfo{
+  width: 85%;
+  margin: 0px 10% 0px 5%;
+  display: inline-flex;
+}
+
+
+.icon{
+  width: 15%;
+  
+}
+
+.icon > img{
+    width: 50%;
+    margin-left: 30%;
+}
+
+.shpname{
+width: 85%;
+color: white;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.shpname > h1 {
+    margin-top: 20px;
+}
+
+
+.bg-body-tertiary{
+    background-image: linear-gradient(to bottom right,  rgb(126, 219, 201), rgb(205, 235, 229));
+    padding: 0px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    padding-left: 17%;
+}
+
+.navbar-brand{
+    color: black;
+
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nav-item{
+    margin: 0px 10px;
+}
+
+.nav-link:hover{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.nav-link{
+    color: black;
+
+}
+
+.dropdown-menu{
+    background-color:rgb(205, 235, 229) ;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.dropdown-item{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.815);
+    
+    margin: 5px 0px;
+}
+
+.dropdown-item:hover{
+    background-color: rgb(136, 223, 205);
+    color: black;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.733);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

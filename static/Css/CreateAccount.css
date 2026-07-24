@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(0, 170, 192);
+}
+
+.accountFrom{
+    width: 90%;
+    margin: 4% 5%;
+    display: inline-flex;
+    box-shadow: 2px 3px 4px 5px rgba(0, 0, 0, 0.466);
+    border-radius: 25px;
+}
+
+.account{
+    background-color: rgb(255, 255, 255) ;
+    width: 55%;
+    
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    
+}
+
+.imgdis{
+    width: 45%;
+    background-color: rgba(255, 255, 255, 0.986) ;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    
+}
+
+.imgdis > img{
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+h2{
+    font-family:'Times New Roman', Times, serif;
+ color: rgb(77, 0, 221);
+text-align: center;
+text-shadow: 0.5px 1px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+.input{
+    width: 45%;
+    padding: 8px 10px 8px 15px;
+    margin: 15px  10px 15px 15px;
+    font-size: 16px;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+    border-bottom: 2px solid orange;
+}
+
+#area{
+    width: 90%;
+    height: 100px;
+}
+
+
+button{
+    background-color: rgb(77, 0, 221);
+    padding: 8PX 15PX;
+    font-size: 16PX;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 30%;
+    margin: 5% 35%;
+    border-radius: 25px;
+
+}
+
+button:hover{
+    box-shadow: 1px 2px 3px 3px rgba(45, 4, 192, 0.336);
+    cursor: pointer;
+}

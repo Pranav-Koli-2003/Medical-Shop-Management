@@ -1,0 +1,72 @@
+
+.display{
+width: 100%;
+
+}
+
+.purchase{
+width: 90%;
+margin: 10% 5%;
+padding: 25px;
+background-color: white;
+box-shadow: 1px 2px 3px 2px rgba(0, 0, 0, 0.664);
+border-radius: 15px;
+font-size: 18px;
+font-family: 'Times New Roman', Times, serif;
+}
+
+.twopart{
+ width: 100%;
+ display: inline-flex;
+ margin-bottom: 25px;
+
+}
+
+.company{
+width: 45%;
+}
+
+
+.gst{
+width: 35%;
+}
+
+.shop{
+width: 20%;
+}
+
+#TAXINFO{
+    margin-top: 25px;
+    border: 2px solid black;
+    text-align: center;
+}
+
+.thborder{
+    border: 2px solid black;
+}
+
+#TAXINFO ,tr, td{
+    padding: 5px;
+}
+
+h3{
+    text-decoration: underline;
+}
+
+
+#printbtn{
+    width: 15%;
+    margin: 5% 0px 0px 0px;
+    padding: 5px 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: white;
+    background-color: rgb(85, 5, 233);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.623);
+    border-radius: 25px;
+    margin-left: 80%;
+}
+
+#printbtn:hover{
+    box-shadow:2px 2px 2px 2px rgba(0, 0, 0, 0.623);
+}

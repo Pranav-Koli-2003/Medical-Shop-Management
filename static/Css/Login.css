@@ -1,0 +1,115 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.login_frem{
+width: 40%;
+margin: 6% 0px 0px 5%;
+background-color: rgba(255, 255, 255, 0.295);
+padding: 1px;
+border-radius: 25px;
+}
+
+.login{
+ background-color: white;
+ width: 90%;
+ margin: 5%;
+ padding: 20px;
+ border-radius: 25px;
+ box-shadow: 2px 3px 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 15px;
+    margin: 0px;
+    color: rgba(0, 0, 0, 0.801);
+}
+
+h3{
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    text-decoration:underline;
+
+}
+
+
+#login_title{
+ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ color: rgb(77, 0, 221);
+margin-bottom: 25px;
+text-shadow: 0.5px 1px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+.input{
+    width: 80%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    padding: 6px 15px;
+    margin: 10px 10%;
+    border: none;
+    border-bottom:2px solid orange;
+    color: black;
+}
+
+
+p{
+    width: 80%;
+    margin: 25px 10% 20px 10%;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(255, 65, 7);
+}
+
+button{
+    background-color: rgb(77, 0, 221);
+    padding: 8PX 15PX;
+    font-size: 16PX;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    width: 60%;
+    margin: 20PX 20%;
+    border-radius: 25px;
+
+}
+
+button:hover{
+    box-shadow: 1px 2px 3px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+
+
+
+@media screen and (max-width: 600px){
+    .login_frem{
+        width: 100%;
+        margin: 25% 0px 0px 0px;
+    }
+
+    .login{
+        padding: 10px;
+    }
+
+    p{
+        display: none;
+    }
+
+    .input{
+        width: 96%;
+        margin: 15px 2%;
+    }
+
+    
+}
