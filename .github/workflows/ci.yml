@@ -30,7 +30,7 @@ jobs:
           pip install -r requirements.txt
           pip install python-dateutil
 
-      - name: Run Django system And checks
+      - name: Run Django system checks
         run: python manage.py check
 
       - name: Run tests
