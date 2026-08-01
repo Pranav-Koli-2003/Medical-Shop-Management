@@ -1,0 +1,31 @@
+# docker-compose.yml — runs the Django app alongside a real Postgres database.
+# This is what proves you can run Django beyond SQLite in a containerized setup,
+# which is exactly what most real jobs expect.
+
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - DATABASE_URL=postgres://medical_user:medical_pass@db:5432/medical_shop_db
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=medical_shop_db
+      - POSTGRES_USER=medical_user
+      - POSTGRES_PASSWORD=medical_pass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres_data:
